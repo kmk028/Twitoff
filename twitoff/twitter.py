@@ -1,7 +1,7 @@
 import basilica
 import tweepy
 from decouple import config
-from .models import DB, Tweets, User
+from .model import DB, Tweets, User
 
 TWITTER_USERS = ['elonmusk', 'nasa', 'sadserver', 'austen', 'lockheedmartin']
 
@@ -51,7 +51,7 @@ def add_or_update_user(username):
             DB.session.add(db_tweet)
 
     except Exception as e:
-        print('Error processing {}: {}'.format(username, e))
+        int('Error processing {}: {}'.format(username, e))
         raise e
     else:
         DB.session.commit()
